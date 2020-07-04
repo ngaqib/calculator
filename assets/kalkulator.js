@@ -5,18 +5,18 @@
     waitingForSecondNumber: false
  };
 
- function updateDisplay() {
+ updateDisplay = () => {
     document.querySelector("#displayNumber").innerText = calculator.displayNumber;
  }
   
- function clearCalculator() {
+ clearCalculator = () => {
     calculator.displayNumber = '0';
     calculator.operator = null;
     calculator.firstNumber = null;
     calculator.waitingForSecondNumber = false;
  }
 
- function inputDigit(digit) {
+ inputDigit = (digit) => {
     if (calculator.waitingForSecondNumber && calculator.firstNumber === calculator.displayNumber) {
         calculator.displayNumber = digit;
     } else {
@@ -28,14 +28,14 @@
     }
  }
  
- function inverseNumber() {
+ inverseNumber = () => {
     if (calculator.displayNumber === '0') {
         return;
     }
     calculator.displayNumber = calculator.displayNumber * -1;
  }
 
- function handleOperator(operator) {
+ handleOperator = (operator) => {
     if (!calculator.waitingForSecondNumber) {
         calculator.operator = operator;
         calculator.waitingForSecondNumber = true;
@@ -45,7 +45,7 @@
     }
  }
 
- function performCalculation() {
+ performCalculation = () => {
     if (calculator.firstNumber == null || calculator.operator == null) {
         alert("Anda belum menetapkan operator");
         return;
